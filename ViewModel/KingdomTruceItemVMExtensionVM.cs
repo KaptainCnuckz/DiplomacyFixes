@@ -71,11 +71,11 @@ namespace DiplomacyFixes.ViewModel
             var allianceException = FormAllianceConditions.Instance.CanApplyExceptions(this, true).FirstOrDefault();
             this.IsAllianceAvailable = allianceException == null;
             var declareWarException = DeclareWarConditions.Instance.CanApplyExceptions(this, true).FirstOrDefault();
-            this.ActionHint = declareWarException != null ? new HintViewModel(declareWarException) : new HintViewModel();
-            this.AllianceHint = allianceException != null ? new HintViewModel(allianceException) : new HintViewModel();
+            this.ActionHint = declareWarException != null ? new HintViewModel(declareWarException.ToString()) : new HintViewModel();
+            this.AllianceHint = allianceException != null ? new HintViewModel(allianceException.ToString()) : new HintViewModel();
             var nonAggressionPactException = NonAggressionPactConditions.Instance.CanApplyExceptions(this, true).FirstOrDefault();
             this.IsNonAggressionPactAvailable = nonAggressionPactException == null;
-            this.NonAggressionPactHint = nonAggressionPactException != null ? new HintViewModel(nonAggressionPactException) : new HintViewModel();
+            this.NonAggressionPactHint = nonAggressionPactException != null ? new HintViewModel(nonAggressionPactException.ToString()) : new HintViewModel();
 
             HybridCost allianceCost = DiplomacyCostCalculator.DetermineCostForFormingAlliance(Faction1 as Kingdom, Faction2 as Kingdom, true);
             this.AllianceInfluenceCost = (int)allianceCost.InfluenceCost.Value;

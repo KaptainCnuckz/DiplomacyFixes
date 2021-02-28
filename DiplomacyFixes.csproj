@@ -20,6 +20,18 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -51,7 +63,7 @@
     <StartWorkingDirectory>$(GameFolder)\bin\Win64_Shipping_Client</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <OutputPath>..\..\..\..\..\..\bin\debug\</OutputPath>
+    <OutputPath>bin\debug\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Launcher|AnyCPU'">
@@ -135,19 +147,19 @@
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\*.dll">
+    <Reference Include="$(GameFolder)\Modules\Native\Win64_Shipping_Client\*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(GameFolder)\Modules\SandBox\bin\Win64_Shipping_Client\*.dll">
+    <Reference Include="$(GameFolder)\Modules\SandBox\Win64_Shipping_Client\*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(GameFolder)\Modules\SandBoxCore\bin\Win64_Shipping_Client\*.dll">
+    <Reference Include="$(GameFolder)\Modules\SandBoxCore\Win64_Shipping_Client\*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(GameFolder)\Modules\StoryMode\bin\Win64_Shipping_Client\*.dll">
+    <Reference Include="$(GameFolder)\Modules\StoryMode\Win64_Shipping_Client\*.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
@@ -218,7 +230,7 @@
     <Compile Include="Patches\KingdomDecisionProposalBehaviorPatch.cs" />
     <Compile Include="StringConstants.cs" />
     <Compile Include="Widgets\KingdomDiplomacyPanelTabControlWidget.cs" />
-    <Compile Include="Patches\SiegeAftermathCampaignBehaviorPatch.cs" />
+    <Compile Include="Patches\GameMenusCallbacksPatch.cs" />
     <Compile Include="Patches\KingdomManagementVMPatch.cs" />
     <Compile Include="Patches\UrbanCharactersCampaignBehaviorPatch.cs" />
     <Compile Include="ViewModel\DiplomacyFactionRelationshipVM.cs" />
@@ -263,6 +275,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GUI\Prefabs\Encyclopedia\EncyclopediaSubPages\EncyclopediaFamilyTreeNodeItem.xml" />
+    <Content Include="SubModule.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

@@ -24,7 +24,7 @@ namespace DiplomacyFixes.ViewModel
         {
             base.UpdateActionAvailability();
             var breakAllianceException = BreakAllianceConditions.Instance.CanApplyExceptions(this, true).FirstOrDefault();
-            this.ActionHint = breakAllianceException != null ? new HintViewModel(breakAllianceException) : new HintViewModel();
+            this.ActionHint = breakAllianceException != null ? new HintViewModel(breakAllianceException.ToString()) : new HintViewModel();
             this.IsOptionAvailable = breakAllianceException == null;
         }
 
