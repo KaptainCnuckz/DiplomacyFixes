@@ -9,7 +9,7 @@ https://github.com/Katarn2000x/DiplomacyFixes/wiki/Features
 # Install & Uninstall
 
 For manual installs, extract the archive into "Steam\steamapps\common\Mount & Blade II Bannerlord." Then activate the "DiplomacyFixes" module in your game's launcher.
-If you installed manually, then delete the "DiplomacyFixes" folder from "Steam\steamapps\common\Mount & Blade II Bannerlord\Modules."
+For manual uninstalls, delete the "DiplomacyFixes" folder from "Steam\steamapps\common\Mount & Blade II Bannerlord\Modules."
 
 Mod manager users (i.e. Vortex) should grab a Nexus Mods release instead.
 https://www.nexusmods.com/mountandblade2bannerlord/mods/2778
